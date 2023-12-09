@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   ThemeProvider,
+  Title,
   Form,
   FormGroup,
   FormItem,
@@ -14,6 +15,7 @@ import {
   TableColumn,
   TableRow,
   TableCell,
+  Toolbar,
 } from "@ui5/webcomponents-react";
 //For the submits property of the button to have effect, you must add the following import
 import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
@@ -39,6 +41,7 @@ export default function RegisterForm() {
 
   return (
     <ThemeProvider>
+      <Title>Averge Daily Balance Key Figure Calculation</Title>
       <Form onSubmit={handleSubmit}>
         <FormGroup titleText="Simulate GL Postings">
           <FormItem label={<Label>Ledger</Label>}>
@@ -84,24 +87,29 @@ export default function RegisterForm() {
           </FormItem>
         </FormGroup>
       </Form>
-      <Table>
-        <TableColumn>
-          <Label>Ledger</Label>
-        </TableColumn>
-        <TableColumn>
-          <Label>Company Code</Label>
-        </TableColumn>
-        <TableColumn>
-          <Label>GL Account</Label>
-        </TableColumn>
-        <TableColumn>
-          <Label>Posting Date</Label>
-        </TableColumn>
-        <TableColumn>
-          <Label>Amount</Label>
-        </TableColumn>
-
-        {console.log(tableData)}
+      <Toolbar><Button>Click</Button></Toolbar>
+      <Table
+        mode="MultiSelect"
+        columns={
+          <>
+            <TableColumn>
+              <Label>Ledger</Label>
+            </TableColumn>
+            <TableColumn>
+              <Label>Company Code</Label>
+            </TableColumn>
+            <TableColumn>
+              <Label>GL Account</Label>
+            </TableColumn>
+            <TableColumn>
+              <Label>Posting Date</Label>
+            </TableColumn>
+            <TableColumn>
+              <Label>Amount</Label>
+            </TableColumn>
+          </>
+        }
+      >
         {tableData.map((item, index) => (
           <TableRow key={index}>
             <TableCell>
