@@ -24,7 +24,7 @@ function DateSelection({calculateADB}) {
     setDates({ ...dates, [field]: e.target.value });
   };
   return (
-    <>
+    <div style={{minWidth: '40%', paddingLeft: "2rem"}}>
       <Form onSubmit={calculateADB}>
         <FormGroup titleText="Calculate ADB">
           <FormItem label={<Label required="true">Key Date</Label>}>
@@ -62,7 +62,7 @@ function DateSelection({calculateADB}) {
           </FormItem>
         </FormGroup>
       </Form>
-    </>
+    </div>
   );
 }
 

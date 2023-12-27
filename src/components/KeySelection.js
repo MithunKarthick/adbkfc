@@ -25,8 +25,7 @@ export default function KeySelection({formData, setFormData, tableData, setTable
   };
 
   return (
-    <>
-      <div style={{ minWidth: "40%" }}>
+      <div style={{ minWidth: "40%", paddingLeft: "2rem" }}>
         <Form onSubmit={(e) => handleSubmit(e) }>
           <FormGroup titleText="Simulate GL Postings">
             <FormItem label={<Label>Ledger</Label>}>
@@ -73,6 +72,5 @@ export default function KeySelection({formData, setFormData, tableData, setTable
           </FormGroup>
         </Form>
       </div>
-    </>
   );
 }

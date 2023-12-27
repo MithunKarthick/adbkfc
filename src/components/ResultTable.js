@@ -9,7 +9,7 @@ import {
 
 function ResultTable({result}) {
   return (
-    <>
+    <div style={{height:"50%", width: '100%', paddingRight: '2rem'}}>
     <Table
       columns={
         <>
@@ -60,7 +60,7 @@ function ResultTable({result}) {
               </TableRow>
             ))}
       </Table>
-    </>
+    </div>
   )
 }
 

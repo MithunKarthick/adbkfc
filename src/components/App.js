@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { ThemeProvider, Title, FlexBox } from "@ui5/webcomponents-react";
+import { ThemeProvider, Title, FlexBox, ResponsiveGridLayout } from "@ui5/webcomponents-react";
 import KeySelection from "./KeySelection";
 import DateSelection from "./DateSelection";
 import PostingTable from "./PostingTable";
@@ -33,18 +33,13 @@ export default function RegisterForm() {
         justifyContent="Start"
         wrap="NoWrap"
       >
-        <div style={{ minWidth: "40%" }}>
-          <KeySelection
-            setFormData={setFormData}
-            setTableData={setTableData}
-            tableData={tableData}
-            formData={formData}
-          />
-        </div>
-        <div>
-          <PostingTable setTableData={setTableData}
-            tableData={tableData} />
-        </div>
+        <KeySelection
+          setFormData={setFormData}
+          setTableData={setTableData}
+          tableData={tableData}
+          formData={formData}
+        />
+        <PostingTable setTableData={setTableData} tableData={tableData} />
       </FlexBox>
       <FlexBox
         alignItems="Stretch"
@@ -52,9 +47,7 @@ export default function RegisterForm() {
         justifyContent="Start"
         wrap="NoWrap"
       >
-        <div style={{ minWidth: "40%" }}>
-          <DateSelection calculateADB={calculateADB} />
-        </div>
+        <DateSelection calculateADB={calculateADB} />
         <ResultTable result={result} />
       </FlexBox>
     </ThemeProvider>

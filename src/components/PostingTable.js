@@ -7,6 +7,7 @@ import {
   TableRow,
   TableCell,
   Toolbar,
+  FlexBox
 } from "@ui5/webcomponents-react";
 
 function PostingTable({tableData, setTableData}) {
@@ -26,10 +27,17 @@ function PostingTable({tableData, setTableData}) {
   };
 
   return (
-    <>
+    <div style={{ width: '100%', paddingRight: "2rem"}}>
+    <FlexBox
+    alignItems="Start"
+    direction="Column"
+    justifyContent="Start"
+    wrap="NoWrap"
+    >
       <Toolbar>
         <Button onClick={handleDelete}>Delete</Button>
       </Toolbar>
+      <div style={{ width: "100%", height: '260px', overflow: 'auto' }}>
       <Table
         mode="MultiSelect"
         onSelectionChange={handleSelect}
@@ -74,7 +82,9 @@ function PostingTable({tableData, setTableData}) {
           </TableRow>
         ))}
       </Table>
-    </>
+      </div>
+      </FlexBox>
+    </div>
   );
 }
 
