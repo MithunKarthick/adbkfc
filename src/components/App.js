@@ -11,7 +11,7 @@ export default function RegisterForm() {
     ledger: "2L",
     companyCode: "1710",
     account: "1001000",
-    postingDate: "",
+    postingDate: new Date().toDateString(),
     amount: 100,
   });
 

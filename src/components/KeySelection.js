@@ -55,6 +55,7 @@ export default function KeySelection({formData, setFormData, tableData, setTable
             <FormItem label="Posting Date">
               <DatePicker
                 value={formData.postingDate}
+                // formatPattern="dd/MM/yyyy"
                 onChange={(e) => handleChange(e, "postingDate")}
               ></DatePicker>
             </FormItem>

@@ -23,7 +23,30 @@ function DateSelection({tableData,setResult}) {
   });
 
   const handleDatesChange = (e, field) => {
-    setDates({ ...dates, [field]: e.target.value });
+    const keyDate = new Date(e.target.value);
+    //MTD
+    keyDate.setDate(1);
+    const startOfMonth = keyDate.toDateString()
+
+    //QTD
+    const quarter = {
+      0: 0,
+      1: 3,
+      2: 6,
+      3: 9
+    }
+    keyDate.setMonth(quarter[Math.floor(keyDate.getMonth()/3)])
+    const startOfQuarter = keyDate.toDateString()
+  
+    //HYTD
+    keyDate.setMonth(keyDate.getMonth() > 5 ? 6 : 0)
+    const startOfHalfYear = keyDate.toDateString()
+
+    //YTD
+    keyDate.setMonth(0)
+    const startOfYear = keyDate.toDateString()
+
+    setDates({ ...dates, startOfMonth, startOfQuarter, startOfHalfYear, startOfYear });
   };
 
   const calculate = (e) => {
@@ -39,30 +62,35 @@ function DateSelection({tableData,setResult}) {
           <FormItem label={<Label required="true">Key Date</Label>}>
             <DatePicker
               value={dates.keyDate}
+              // formatPattern="dd/MM/yyyy"
               onChange={(e) => handleDatesChange(e, "keyDate")}
             ></DatePicker>
           </FormItem>
           <FormItem label={<Label>Start of Month</Label>}>
             <DatePicker
               value={dates.startOfMonth}
+              // formatPattern="dd/MM/yyyy"
               onChange={(e) => handleDatesChange(e, "startOfMonth")}
             ></DatePicker>
           </FormItem>
           <FormItem label="Start of Quarter">
             <DatePicker
               value={dates.startOfQuarter}
+              // formatPattern="dd/MM/yyyy"
               onChange={(e) => handleDatesChange(e, "startOfQuarter")}
             ></DatePicker>
           </FormItem>
           <FormItem label="Start of Half Year">
             <DatePicker
               value={dates.startOfHalfYear}
+              // formatPattern="dd/MM/yyyy"
               onChange={(e) => handleDatesChange(e, "startOfHalfYear")}
             ></DatePicker>
           </FormItem>
           <FormItem label="Start of Year">
             <DatePicker
               value={dates.startOfYear}
+              // formatPattern="dd/MM/yyyy"
               onChange={(e) => handleDatesChange(e, "startOfYear")}
             ></DatePicker>
           </FormItem>
