@@ -1,11 +1,12 @@
-import React, { useState, useRef } from "react";
-import { ThemeProvider, Title, FlexBox, ResponsiveGridLayout } from "@ui5/webcomponents-react";
+import React, { useState } from "react";
+import { ThemeProvider, Title, FlexBox } from "@ui5/webcomponents-react";
 import KeySelection from "./KeySelection";
 import DateSelection from "./DateSelection";
 import PostingTable from "./PostingTable";
 import ResultTable from "./ResultTable";
 
 export default function RegisterForm() {
+
   const [formData, setFormData] = useState({
     ledger: "2L",
     companyCode: "1710",
@@ -13,16 +14,9 @@ export default function RegisterForm() {
     postingDate: "",
     amount: 100,
   });
+
   const [tableData, setTableData] = useState([]);
   const [result, setResult] = useState([]);
-
-  const calculateADB = (e) => {
-    let adb = [...tableData];
-    adb.array.forEach((item) => {
-      return item;
-    });
-    setResult([...tableData]);
-  };
 
   return (
     <ThemeProvider>
@@ -47,7 +41,7 @@ export default function RegisterForm() {
         justifyContent="Start"
         wrap="NoWrap"
       >
-        <DateSelection calculateADB={calculateADB} />
+        <DateSelection tableData={tableData} setResult={setResult} />
         <ResultTable result={result} />
       </FlexBox>
     </ThemeProvider>

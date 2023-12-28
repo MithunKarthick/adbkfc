@@ -22,9 +22,9 @@ function ResultTable({result}) {
           <TableColumn>
             <Label>GL Account</Label>
           </TableColumn>
-          <TableColumn>
+          {/* <TableColumn>
             <Label>Posting Date</Label>
-          </TableColumn>
+          </TableColumn> */}
           <TableColumn>
             <Label>Amount</Label>
           </TableColumn>
@@ -51,11 +51,20 @@ function ResultTable({result}) {
                 <TableCell>
                   <Label>{item.account}</Label>
                 </TableCell>
-                <TableCell>
+                {/* <TableCell>
                   <Label>{item.postingDate}</Label>
-                </TableCell>
+                </TableCell> */}
                 <TableCell>
                   <Label>{item.amount}</Label>
+                </TableCell>
+                <TableCell>
+                  <Label>{item.MTD}</Label>
+                </TableCell>
+                <TableCell>
+                  <Label>{item.QTD}</Label>
+                </TableCell>
+                <TableCell>
+                  <Label>{item.YTD}</Label>
                 </TableCell>
               </TableRow>
             ))}

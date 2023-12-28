@@ -10,8 +10,10 @@ import {
 } from "@ui5/webcomponents-react";
 //For the submits property of the button to have effect, you must add the following import
 import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
+import calculateADB from "../utils/calculateADB";
 
-function DateSelection({calculateADB}) {
+function DateSelection({tableData,setResult}) {
+
   const [dates, setDates] = useState({
     keyDate: "",
     startOfMonth: "",
@@ -23,9 +25,16 @@ function DateSelection({calculateADB}) {
   const handleDatesChange = (e, field) => {
     setDates({ ...dates, [field]: e.target.value });
   };
+
+  const calculate = (e) => {
+    e.preventDefault();
+    const result = calculateADB(tableData, dates)
+    setResult([...result]);
+  };
+
   return (
     <div style={{minWidth: '40%', paddingLeft: "2rem"}}>
-      <Form onSubmit={calculateADB}>
+      <Form onSubmit={(e) => calculate(e) }>
         <FormGroup titleText="Calculate ADB">
           <FormItem label={<Label required="true">Key Date</Label>}>
             <DatePicker
